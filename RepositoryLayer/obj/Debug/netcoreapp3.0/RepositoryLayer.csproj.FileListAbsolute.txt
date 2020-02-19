@@ -1,0 +1,5 @@
+C:\Users\User\source\repos\ElectionApp\RepositoryLayer\bin\Debug\netcoreapp3.0\RepositoryLayer.deps.json
+C:\Users\User\source\repos\ElectionApp\RepositoryLayer\bin\Debug\netcoreapp3.0\RepositoryLayer.dll
+C:\Users\User\source\repos\ElectionApp\RepositoryLayer\obj\Debug\netcoreapp3.0\RepositoryLayer.csprojAssemblyReference.cache
+C:\Users\User\source\repos\ElectionApp\RepositoryLayer\obj\Debug\netcoreapp3.0\RepositoryLayer.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\ElectionApp\RepositoryLayer\obj\Debug\netcoreapp3.0\RepositoryLayer.AssemblyInfo.cs

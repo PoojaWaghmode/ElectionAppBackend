@@ -1,0 +1,5 @@
+C:\Users\User\source\repos\ElectionApp\CommonLayer\bin\Debug\netcoreapp3.0\CommonLayer.deps.json
+C:\Users\User\source\repos\ElectionApp\CommonLayer\bin\Debug\netcoreapp3.0\CommonLayer.dll
+C:\Users\User\source\repos\ElectionApp\CommonLayer\obj\Debug\netcoreapp3.0\CommonLayer.csprojAssemblyReference.cache
+C:\Users\User\source\repos\ElectionApp\CommonLayer\obj\Debug\netcoreapp3.0\CommonLayer.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\ElectionApp\CommonLayer\obj\Debug\netcoreapp3.0\CommonLayer.AssemblyInfo.cs
