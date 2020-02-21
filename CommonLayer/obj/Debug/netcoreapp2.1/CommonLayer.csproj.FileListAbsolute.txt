@@ -5,3 +5,4 @@ C:\Users\User\source\repos\ElectionApp\CommonLayer\obj\Debug\netcoreapp2.1\Commo
 C:\Users\User\source\repos\ElectionApp\CommonLayer\obj\Debug\netcoreapp2.1\CommonLayer.AssemblyInfo.cs
 C:\Users\User\source\repos\ElectionApp\CommonLayer\obj\Debug\netcoreapp2.1\CommonLayer.dll
 C:\Users\User\source\repos\ElectionApp\CommonLayer\obj\Debug\netcoreapp2.1\CommonLayer.pdb
+C:\Users\User\source\repos\ElectionApp\CommonLayer\obj\Debug\netcoreapp2.1\CommonLayer.csprojAssemblyReference.cache

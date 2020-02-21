@@ -13,7 +13,14 @@ namespace RepositoryLayer.Context
         {
 
         }
-        public DbSet<AdminModel> ApplicationUser { get; set; }
+        public DbSet <AdminModel> ApplicationUser { get; set; }
+
+        public DbSet <CandidateModel> Candidates { get; set; }
+
+        public DbSet <ConstituencyModel> Constituencies { get; set; }
+
+        public DbSet <PartyModel> Parties { get; set; }
+        
     }
 
 }

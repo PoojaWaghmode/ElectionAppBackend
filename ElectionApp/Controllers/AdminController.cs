@@ -15,7 +15,7 @@ namespace ElectionApp.Controllers
     {
         private readonly IAdminBL adminBL;
 
-        public AdminController( IAdminBL adminBL)
+        public AdminController( IAdminBL adminBL )
         {
             this.adminBL = adminBL;
         }

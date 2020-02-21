@@ -10,11 +10,11 @@ namespace BusinessLayer.Interface
     public interface IAdminBL
     {
 
-        Task <AccountResponse> AdminRegisterBL(RegistrationModel registrationModel);
+        Task<AccountResponse> AdminRegisterBL(RegistrationModel registrationModel);
 
         Task<AccountResponse> AdminLoginBL(LoginModel loginModel);
 
         Task<string> GenerateToken(AccountResponse accountResponse);
     }
-       
+
 }

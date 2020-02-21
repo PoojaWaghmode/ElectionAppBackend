@@ -123,7 +123,7 @@ namespace RepositoryLayer.Service
                 //// here using securitykey and algorithm(security) the creadintails is generate(SigningCredentials present in Token)
                 var creadintials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
                 var claims = new[] {
-                                    new Claim("UserId", user.Id.ToString()),
+                                    new Claim("AdminId", user.Id.ToString()),
                                    new Claim("UserName", user.UserName.ToString())
                                    };
                 var token = new JwtSecurityToken("Security token", "https://Test.com", claims, DateTime.UtcNow, expires: DateTime.Now.AddDays(5), signingCredentials: creadintials);
