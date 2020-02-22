@@ -6,6 +6,7 @@ using RepositoryLayer.Context;
 using RepositoryLayer.Interface;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,10 +34,11 @@ namespace RepositoryLayer.Service
                     City = constituencyRequest.City,
                     State = constituencyRequest.State,
                     CreatedDate = DateTime.Now,
-                    MofifiedDate = DateTime.Now
+                    ModifiedDate = DateTime.Now
 
                 };
-                authenticationContext.Add(newConstituency);
+                authenticationContext.Constituencies.Add(newConstituency);
+
                 await this.authenticationContext.SaveChangesAsync();
 
                 if (newConstituency != null)
@@ -62,19 +64,101 @@ namespace RepositoryLayer.Service
             }
         }
 
-        public Task<bool> DeleteConstituencyRL(int constituencyId, string adminId)
+        public async  Task<bool> DeleteConstituencyRL(int constituencyId, string adminId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var constituencyData = this.authenticationContext.Constituencies.Where(p => p.Id == constituencyId).FirstOrDefault();
+
+                if (constituencyData != null)
+                {
+                    this.authenticationContext.Remove(constituencyData);
+
+                    await this.authenticationContext.SaveChangesAsync();
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
         }
 
         public IList<ConstituencyResponse> GetConstituenciesRL(string adminId)
         {
-            throw new NotImplementedException();
+           try
+            {
+                var constituencyData = this.authenticationContext.Constituencies.Select(s=>s);
+                if(constituencyData !=null)
+                {
+                    var allConstituencyDatalist = new List<ConstituencyResponse>();
+                    foreach( var constituency in allConstituencyDatalist)
+                    {
+                        allConstituencyDatalist.Add(constituency);
+                    }
+                    return allConstituencyDatalist;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch(Exception exception )
+            {
+                throw new Exception(exception.Message);
+            }
         }
 
-        public Task<ConstituencyResponse> UpdateConstituencyRL(ConstituencyRequest constituencyRequest, string adminId)
+        public async Task<ConstituencyResponse> UpdateConstituencyRL(int constituencyId ,ConstituencyRequest constituencyRequest, string adminId)
         {
-            throw new NotImplementedException();
+           try
+            {
+                var constituencyData = this.authenticationContext.Constituencies.Where(s => s.Id == constituencyId && s.ConstituencyName != constituencyRequest.ConstituencyName || s.City != constituencyRequest.City || s.State != constituencyRequest.State).FirstOrDefault();
+                if(constituencyData!=null)
+                {
+                    if(constituencyRequest.ConstituencyName != null && constituencyRequest.ConstituencyName !=string .Empty)
+                    {
+                        constituencyData.ConstituencyName= constituencyRequest.ConstituencyName;
+                    }
+                    if(constituencyRequest.City !=null && constituencyRequest.City != string.Empty)
+                    {
+                        constituencyData.City = constituencyRequest.City;
+                    }
+                    if(constituencyRequest.State != null && constituencyRequest.State != string.Empty)
+                    {
+                        constituencyData.State = constituencyRequest.State;
+                    }
+                    constituencyData.ModifiedDate = DateTime.Now;
+
+                    await this.authenticationContext.SaveChangesAsync();
+
+                    var constituencyResponse = new ConstituencyResponse()
+                    {
+                        ConstituencyId=constituencyData.Id,
+                        ConstituencyName=constituencyData.ConstituencyName,
+                        City=constituencyData.City,
+                        State=constituencyData.State
+
+                    };
+                    return constituencyResponse;
+
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch(Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+          
         }
     }
 }

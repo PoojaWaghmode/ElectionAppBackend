@@ -13,7 +13,7 @@ namespace RepositoryLayer.Interface
 
         Task<bool> DeleteConstituencyRL(int constituencyId, string adminId);
 
-        Task<ConstituencyResponse> UpdateConstituencyRL(ConstituencyRequest constituencyRequest, string adminId);
+        Task<ConstituencyResponse> UpdateConstituencyRL(int constituencyId ,ConstituencyRequest constituencyRequest, string adminId);
 
         IList<ConstituencyResponse> GetConstituenciesRL(string adminId);
     }

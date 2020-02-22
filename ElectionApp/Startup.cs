@@ -46,6 +46,9 @@ namespace ElectionApp
             services.AddTransient<IPartyBL, PartyBL>();
             services.AddTransient<IPartyRL, PartyRL>();
 
+            services.AddTransient<IConstituencyBL, ConstituencyBL>();
+            services.AddTransient<IConstituencyRL, ConstituencyRL>();
+
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

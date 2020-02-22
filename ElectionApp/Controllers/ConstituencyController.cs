@@ -23,13 +23,13 @@ namespace ElectionApp.Controllers
 
         [HttpPost]
 
-        public async Task<IActionResult> AddConstituency( ConstitutencyRequest constitutencyRequest)
+        public async Task<IActionResult> AddConstituency( ConstituencyRequest constitutencyRequest)
         {
             try
             {
                 var adminId = HttpContext.User.Claims.First(c => c.Type == "AdminId").Value;
 
-                var data = await constituencyBL.AddPartyBL(constitutencyRequest, adminId);
+                var data = await constituencyBL.AddConstituencyBL(constitutencyRequest, adminId);
                 if (data != null)
                 {
                     return Ok(new { success = true, message = " Constituency Added", data });
@@ -47,14 +47,14 @@ namespace ElectionApp.Controllers
         }
 
         [HttpPut]
-        [Route("{partyId}")]
-        public async Task<IActionResult> UpdateConstituency(int partyId, ConstituencyRequest constituencyRequest)
+        [Route("{constituencyId}")]
+        public async Task<IActionResult> UpdateConstituency(int constituencyId, ConstituencyRequest constituencyRequest)
         {
             try
             {
                 var adminId = HttpContext.User.Claims.First(c => c.Type == "AdminId").Value;
 
-                var data = await constituencyBL.UpdateConstituencyBL(partyId, constituencyRequest, adminId);
+                var data = await constituencyBL.UpdateConstituencyBL(constituencyId, constituencyRequest, adminId);
 
                 if (data != null)
                 {
@@ -72,7 +72,7 @@ namespace ElectionApp.Controllers
         }
 
         [HttpDelete]
-        [Route("{PartyId}")]
+        [Route("{constituencyId}")]
         public async Task<IActionResult> DeleteConstituency(int ConstituencyId)
         {
             try
@@ -103,15 +103,15 @@ namespace ElectionApp.Controllers
             {
                 var adminId = HttpContext.User.Claims.First(c => c.Type == "AdminId").Value;
 
-                IList<ConstituencyResponse> data = this.constituencyBL.GetConstituencyBL(adminId);
+                IList<ConstituencyResponse> data = this.constituencyBL.GetConstituenciesBL(adminId);
 
                 if (data.Count != 0)
                 {
-                    return Ok(new { success = true, message = "All Parties Displayed", data });
+                    return Ok(new { success = true, message = "All Constituencies Displayed", data });
                 }
                 else
                 {
-                    return Ok(new { success = false, message = " No Available Parties " });
+                    return Ok(new { success = false, message = " No Available Constituencies " });
                 }
             }
             catch (Exception exception)
@@ -119,6 +119,5 @@ namespace ElectionApp.Controllers
                 return BadRequest(new { success = false, message = exception.Message });
             }
         }
-
     }
 }

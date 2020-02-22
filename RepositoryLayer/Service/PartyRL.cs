@@ -37,7 +37,7 @@ namespace RepositoryLayer.Service
                     MofifiedDate = DateTime.Now
 
                 };
-                authenticationContext.Add(newParty);
+                authenticationContext.Parties.Add(newParty);
                 await this.authenticationContext.SaveChangesAsync();
 
                 if(newParty !=null)

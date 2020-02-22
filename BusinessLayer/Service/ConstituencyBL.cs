@@ -40,13 +40,13 @@ namespace BusinessLayer.Service
         }
 
 
-        public async Task<ConstituencyResponse> UpdateConstituencyBL(ConstituencyRequest constituencyRequest, string adminId)
+        public async Task<ConstituencyResponse> UpdateConstituencyBL( int constituencyId ,ConstituencyRequest constituencyRequest, string adminId)
         {
 
 
             try
             {
-                var result = await constituencyRL.UpdateConstituencyRL(constituencyRequest, adminId);
+                var result = await constituencyRL.UpdateConstituencyRL(constituencyId,constituencyRequest, adminId);
 
                 if (result != null)
                 {
@@ -68,7 +68,7 @@ namespace BusinessLayer.Service
         {
             try
             {
-                var result = constituencyRL.GetPartiesRL(adminId);
+                var result = constituencyRL.GetConstituenciesRL(adminId);
                 if (result.Count != 0)
                 {
                     return result;
@@ -88,7 +88,7 @@ namespace BusinessLayer.Service
         {
             try
             {
-                var result = await this.constituencyRL.DeletePartyRL(constituencyId, adminId);
+                var result = await this.constituencyRL.DeleteConstituencyRL(constituencyId, adminId);
 
                 if (result == true)
                 {

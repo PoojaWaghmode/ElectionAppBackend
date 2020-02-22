@@ -14,7 +14,7 @@ namespace BusinessLayer.Interface
 
         Task<bool> DeleteConstituencyBL(int constituencyId, string adminId);
 
-        Task<ConstituencyResponse> UpdateConstituencyBL( ConstituencyRequest constituencyRequest ,string adminId);
+        Task<ConstituencyResponse> UpdateConstituencyBL( int constituencyId ,ConstituencyRequest constituencyRequest ,string adminId);
 
         IList<ConstituencyResponse> GetConstituenciesBL( string adminId);
     }
